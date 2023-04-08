@@ -19,6 +19,11 @@ public class SectionService {
         return section;
     }
 
+    public Section getSectionName(String sectionName) {
+        Section section=sectionRepository.chargeFindSectionByName(sectionName).orElseThrow(()->new IllegalStateException(("Section does not exist")));
+        return section;
+    }
+
     public List<Section> getSections() {
         return sectionRepository.findAll();
     }

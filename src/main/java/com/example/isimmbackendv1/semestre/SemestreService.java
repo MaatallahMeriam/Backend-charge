@@ -19,6 +19,11 @@ public class SemestreService {
         return semestre;
     }
 
+    public Semestre getSemestreName(String semestreName) {
+        Semestre semestre=semestreRepository.chargeFindSemestreByName(semestreName).orElseThrow(()->new IllegalStateException(("Semestre does not exist")));
+        return semestre;
+    }
+
     public List<Semestre> getSemestres() {
         return semestreRepository.findAll();
     }

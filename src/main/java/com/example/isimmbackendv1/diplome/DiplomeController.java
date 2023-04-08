@@ -23,6 +23,11 @@ public class DiplomeController {
         return diplomeService.getDiplome(diplomeId);
 
     }
+    @GetMapping(path="type/{diplomeName}")
+    public Diplome getDiplomeName(@PathVariable("diplomeName") String diplomeName){
+        return diplomeService.getDiplomeName(diplomeName);
+
+    }
     @GetMapping
     public List<Diplome> getDiplomes(){
         return diplomeService.getDiplomes();

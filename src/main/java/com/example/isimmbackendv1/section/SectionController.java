@@ -23,6 +23,11 @@ public class SectionController {
         return sectionService.getSection(sectionId);
 
     }
+    @GetMapping(path="type/{sectionName}")
+    public Section getSectionName(@PathVariable("sectionName") String sectionName){
+        return sectionService.getSectionName(sectionName);
+
+    }
     @GetMapping
     public List<Section> getSections(){
         return sectionService.getSections();
