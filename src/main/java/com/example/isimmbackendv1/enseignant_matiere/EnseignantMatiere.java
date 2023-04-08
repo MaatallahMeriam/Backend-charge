@@ -25,5 +25,7 @@ public class EnseignantMatiere implements Serializable {
     @OneToOne
     private Enseignant enseignant;
 
+    private String type;
+
 
 }
