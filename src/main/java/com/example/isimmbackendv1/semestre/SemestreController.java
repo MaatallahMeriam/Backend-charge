@@ -20,7 +20,11 @@ public class SemestreController {
     @GetMapping(path="{semestreId}")
     public Semestre getSemestre(@PathVariable("semestreId") Long semestreId){
         return semestreService.getSemestre(semestreId);
+    }
 
+    @GetMapping(path="type/{semestreName}")
+    public Semestre getSemestreName(@PathVariable("semestreName") String semestreName){
+        return semestreService.getSemestreName(semestreName);
     }
     @GetMapping
     public List<Semestre> getSemestres(){

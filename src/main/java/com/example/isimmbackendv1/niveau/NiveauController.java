@@ -21,7 +21,11 @@ public class NiveauController {
     @GetMapping(path="{niveauId}")
     public Niveau getNiveau(@PathVariable("niveauId") Long niveauId){
         return niveauService.getNiveau(niveauId);
+    }
 
+    @GetMapping(path="type/{niveauName}")
+    public Niveau getNiveauName(@PathVariable("niveauName") String niveauName){
+        return niveauService.getNiveauName(niveauName);
     }
     @GetMapping
     public List<Niveau> getNiveaus(){

@@ -18,6 +18,10 @@ public class DiplomeService {
         Diplome diplome=diplomeRepository.findById(diplomeId).orElseThrow(()->new IllegalStateException(("Diplome does not exist")));
         return diplome;
     }
+    public Diplome getDiplomeName(String diplomeName) {
+        Diplome diplome=diplomeRepository.chargeFindDiplomeByName(diplomeName).orElseThrow(()->new IllegalStateException(("Diplome does not exist")));
+        return diplome;
+    }
 
     public List<Diplome> getDiplomes() {
         return diplomeRepository.findAll();

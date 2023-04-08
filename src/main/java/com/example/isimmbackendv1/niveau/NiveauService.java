@@ -19,6 +19,11 @@ public class NiveauService {
         return niveau;
     }
 
+    public Niveau getNiveauName(String niveauName) {
+        Niveau niveau=niveauRepository.chargeFindNiveauByName(niveauName).orElseThrow(()->new IllegalStateException(("Niveau does not exist")));
+        return niveau;
+    }
+
     public List<Niveau> getNiveaus() {
         return niveauRepository.findAll();
     }
