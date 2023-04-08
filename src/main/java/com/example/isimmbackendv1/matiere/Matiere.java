@@ -26,20 +26,20 @@ public class Matiere implements Serializable {
     private int code;
 
     @Column
-    private int nbHCr;
+    private float nbHCr;
     @Column
-    private int nbHTd;
+    private float nbHTd;
     @Column
-    private int nbHTp;
+    private float nbHTp;
     @Column
-    private int nbHCri;
+    private float nbHCri;
     @Column
-    private int nbHNp;
+    private float nbHNp;
 
     @ManyToOne
     private Regime regime;
 
-    public Matiere(String name, int code, int nbHCr, int nbHTd, int nbHTp, int nbHCri, int nbHNp, Regime regime) {
+    public Matiere(String name, int code, float nbHCr, float nbHTd, float nbHTp, float nbHCri, float nbHNp, Regime regime) {
         this.name = name;
         this.code = code;
         this.nbHCr = nbHCr;
