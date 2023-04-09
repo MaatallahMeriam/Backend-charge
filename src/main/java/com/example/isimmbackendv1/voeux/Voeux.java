@@ -1,5 +1,6 @@
 package com.example.isimmbackendv1.voeux;
 
+import com.example.isimmbackendv1.matiere.Matiere;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class Voeux implements Serializable {
 
     @Column(length = 100)
     private String message;
+
+
 
     public Voeux(String name, String message) {
         this.name = name;

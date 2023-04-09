@@ -27,5 +27,9 @@ public class EnseignantMatiere implements Serializable {
 
     private String type;
 
-
+    public EnseignantMatiere(Matiere matiere, Enseignant enseignant, String type) {
+        this.matiere = matiere;
+        this.enseignant = enseignant;
+        this.type = type;
+    }
 }
