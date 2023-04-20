@@ -30,8 +30,8 @@ public class EnseignantController {
         return enseignantService.getEnseignantByName(nom, prenom);
     }
 
-    @GetMapping(path="{enseignantName}")
-    public Enseignant getEnseignantByName(@PathVariable("enseignantName") String enseignantName){
+    @GetMapping(path="/enseignantName")
+    public Enseignant getEnseignantByName(@PathVariable("nom") String enseignantName){
         return enseignantService.getEnseignantByName(enseignantName);
 
     }
