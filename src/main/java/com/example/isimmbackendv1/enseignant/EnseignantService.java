@@ -1,7 +1,5 @@
 package com.example.isimmbackendv1.enseignant;
 
-import com.example.isimmbackendv1.enseignant.Enseignant;
-import com.example.isimmbackendv1.enseignant.EnseignantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +15,10 @@ public class EnseignantService {
     public Enseignant getEnseignant(Long enseignantId) {
         Enseignant enseignant=enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("Enseignant does not exist")));
         return enseignant;
+    }
+    public Optional<Enseignant> getEnseignantByName(String nom, String prenom) {
+        return enseignantRepository.findEnseignantByName(nom,prenom);
+
     }
 
     public List<Enseignant> getEnseignants() {

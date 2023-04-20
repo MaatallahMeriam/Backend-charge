@@ -23,12 +23,9 @@ public class VoeuxService {
         return voeuxRepository.findAll();
     }
 
-    public void addVoeux(Voeux voeux) {
-        Optional<Voeux> voeuxOptional= voeuxRepository.chargeFindVoeuxByName(voeux.getName());
-        if(voeuxOptional.isPresent()){
-            throw new IllegalStateException("Voeux Exists");
-        }
+    public Voeux addVoeux(Voeux voeux) {
         voeuxRepository.save(voeux);
+        return voeux;
     }
 
 

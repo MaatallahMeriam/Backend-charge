@@ -19,7 +19,7 @@ public class MatiereController {
     }
 
     @GetMapping(path="{matiereId}")
-    public Matiere getMatiere(@PathVariable("matiereId") Long matiereId){
+    public MatiereDTO getMatiere(@PathVariable("matiereId") Long matiereId){
         return matiereService.getMatiere(matiereId);
 
     }

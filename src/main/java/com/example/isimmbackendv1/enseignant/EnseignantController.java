@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -23,6 +24,11 @@ public class EnseignantController {
         return enseignantService.getEnseignant(enseignantId);
 
     }
+    @GetMapping(path = "/getEnseignantByName")
+    public Optional<Enseignant> getEnseignantByName(@RequestParam("nom") String nom,@RequestParam("prenom") String prenom) {
+        return enseignantService.getEnseignantByName(nom, prenom);
+    }
+
     @GetMapping
     public List<Enseignant> getEnseignants(){
         return enseignantService.getEnseignants();

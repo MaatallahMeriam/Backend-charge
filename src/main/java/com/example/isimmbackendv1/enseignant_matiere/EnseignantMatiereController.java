@@ -33,6 +33,15 @@ public class EnseignantMatiereController {
         enseignantMatiereService.addEnseignantMatiere(enseignantMatiere);
     }
 
+    @PutMapping(consumes = "application/json;charset=UTF-8",path = "/updateEnseignantMatiere")
+    public void updateEnseignantMatiere(@RequestParam("matiereId") Long matiereId,@RequestParam("enseignantId") Long enseignantId,@RequestParam("type") String type){
+        System.out.println(matiereId);
+        System.out.println(enseignantId);
+        System.out.println(type);
+        enseignantMatiereService.updateEnseignantMatiere(matiereId,enseignantId,type);
+
+    }
+
     @DeleteMapping(path="{enseignantMatiereId}")
     public void deleteEnseignantMatiere(@PathVariable("enseignantMatiereId") Long enseignantMatiereId){
         enseignantMatiereService.deleteEnseignantMatiere(enseignantMatiereId);

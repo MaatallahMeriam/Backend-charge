@@ -29,8 +29,8 @@ public class VoeuxController {
     }
 
     @PostMapping(consumes = "application/json;charset=UTF-8")
-    public void addVoeux(@RequestBody Voeux voeux){
-        voeuxService.addVoeux(voeux);
+    public Voeux addVoeux(@RequestBody Voeux voeux){
+        return voeuxService.addVoeux(voeux);
     }
 
     @DeleteMapping(path="{voeuxId}")

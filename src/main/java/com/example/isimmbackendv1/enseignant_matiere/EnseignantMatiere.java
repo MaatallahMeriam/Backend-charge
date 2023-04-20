@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 @Entity
 @Data
@@ -32,4 +33,6 @@ public class EnseignantMatiere implements Serializable {
         this.enseignant = enseignant;
         this.type = type;
     }
+
+
 }

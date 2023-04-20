@@ -2,6 +2,7 @@ package com.example.isimmbackendv1.diplome;
 
 import com.example.isimmbackendv1.diplome.Diplome;
 import com.example.isimmbackendv1.diplome.DiplomeRepository;
+import com.example.isimmbackendv1.matiere.MatiereDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,7 @@ public class DiplomeService {
     public List<Diplome> getDiplomes() {
         return diplomeRepository.findAll();
     }
+
 
     public void addDiplome(Diplome diplome) {
         Optional<Diplome> diplomeOptional= diplomeRepository.chargeFindDiplomeByName(diplome.getName());
