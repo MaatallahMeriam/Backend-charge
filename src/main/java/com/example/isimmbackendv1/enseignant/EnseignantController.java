@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/isimm/distributionCharge/enseignant")
@@ -23,6 +24,13 @@ public class EnseignantController {
         return enseignantService.getEnseignant(enseignantId);
 
     }
+
+    @GetMapping(path="{enseignantName}")
+    public Enseignant getEnseignantByName(@PathVariable("enseignantName") String enseignantName){
+        return enseignantService.getEnseignantByName(enseignantName);
+
+    }
+
     @GetMapping
     public List<Enseignant> getEnseignants(){
         return enseignantService.getEnseignants();

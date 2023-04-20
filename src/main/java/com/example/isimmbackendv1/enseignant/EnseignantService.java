@@ -19,6 +19,11 @@ public class EnseignantService {
         return enseignant;
     }
 
+    public Enseignant getEnseignantByName(String enseignantName) {
+        Enseignant enseignant=enseignantRepository.chargeFindEnseignantByName(enseignantName).orElseThrow(()->new IllegalStateException(("Enseignant does not exist")));
+        return enseignant;
+    }
+
     public List<Enseignant> getEnseignants() {
         return enseignantRepository.findAll();
     }
