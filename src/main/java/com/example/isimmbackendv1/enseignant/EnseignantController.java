@@ -28,6 +28,7 @@ public class EnseignantController {
     @GetMapping(path = "/getEnseignantByName")
     public Optional<Enseignant> getEnseignantByName(@RequestParam("nom") String nom,@RequestParam("prenom") String prenom) {
         return enseignantService.getEnseignantByName(nom, prenom);
+    }
 
     @GetMapping(path="{enseignantName}")
     public Enseignant getEnseignantByName(@PathVariable("enseignantName") String enseignantName){
@@ -45,7 +46,7 @@ public class EnseignantController {
         enseignantService.addEnseignant(enseignant);
     }
 
-    @DeleteMapping(path="{enseignantId}")java.show.server.task.status
+    @DeleteMapping(path="{enseignantId}")
     public void deleteEnseignant(@PathVariable("enseignantId") Long enseignantId){
         enseignantService.deleteEnseignant(enseignantId);
     }
