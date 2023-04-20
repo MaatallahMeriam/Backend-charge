@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/isimm/distributionCharge/enseignant")
@@ -27,6 +28,11 @@ public class EnseignantController {
     @GetMapping(path = "/getEnseignantByName")
     public Optional<Enseignant> getEnseignantByName(@RequestParam("nom") String nom,@RequestParam("prenom") String prenom) {
         return enseignantService.getEnseignantByName(nom, prenom);
+
+    @GetMapping(path="{enseignantName}")
+    public Enseignant getEnseignantByName(@PathVariable("enseignantName") String enseignantName){
+        return enseignantService.getEnseignantByName(enseignantName);
+
     }
 
     @GetMapping
@@ -39,7 +45,7 @@ public class EnseignantController {
         enseignantService.addEnseignant(enseignant);
     }
 
-    @DeleteMapping(path="{enseignantId}")
+    @DeleteMapping(path="{enseignantId}")java.show.server.task.status
     public void deleteEnseignant(@PathVariable("enseignantId") Long enseignantId){
         enseignantService.deleteEnseignant(enseignantId);
     }
