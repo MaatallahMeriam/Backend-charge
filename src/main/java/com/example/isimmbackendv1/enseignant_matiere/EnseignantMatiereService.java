@@ -29,6 +29,10 @@ public class EnseignantMatiereService {
         return enseignantMatiereRepository.findAll();
     }
 
+    public List<EnseignantMatiere> getEnseignantMatieresByEnseignantId(Long enseignatId) {
+        return enseignantMatiereRepository.findEnseignantMatiereByEnseignant(enseignatId);
+    }
+
     public void addEnseignantMatiere(EnseignantMatiere enseignantMatiere) {
         /*Optional<EnseignantMatiere> enseignantMatiereOptional= enseignantMatiereRepository.chargeFindEnseignantMatiereByName(enseignantMatiere.getName());
         if(enseignantMatiereOptional.isPresent()){

@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface EnseignantMatiereRepository extends JpaRepository<EnseignantMatiere,Long> {
     @Query("SELECT s FROM EnseignantMatiere s where  s.matiere.matiereId=?1")
     List<EnseignantMatiere> findEnseignantMatiereByMatiere(Long matiereId);
+
+    @Query("SELECT s FROM EnseignantMatiere s where  s.enseignant.enseignantId=?1")
+    List<EnseignantMatiere> findEnseignantMatiereByEnseignant(Long enseignantId);
 }

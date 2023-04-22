@@ -23,6 +23,13 @@ public class EnseignantMatiereController {
         return enseignantMatiereService.getEnseignantMatiere(enseignantMatiereId);
 
     }
+
+    @GetMapping(path="/getEnseignantMatieresByEnseignantId")
+    public List<EnseignantMatiere> getEnseignantMatieresByEnseignantId(@RequestParam("enseignantId") Long enseignantId){
+        return enseignantMatiereService.getEnseignantMatieresByEnseignantId(enseignantId);
+
+    }
+
     @GetMapping
     public List<EnseignantMatiere> getEnseignantMatieres(){
         return enseignantMatiereService.getEnseignantMatieres();
