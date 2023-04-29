@@ -41,7 +41,7 @@ public class EnseignantMatiereService {
         enseignantMatiereRepository.save(enseignantMatiere);
     }
 
-    public void updateEnseignantMatiere(Long matiereId,Long enseignantId,String type) {
+    public void updateEnseignantMatiere(Long matiereId,Long enseignantId,String type,int nombreGroupes) {
         List<EnseignantMatiere> enseignantMatieres= enseignantMatiereRepository.findEnseignantMatiereByMatiere(matiereId);
         Boolean found = false;
         if(!enseignantMatieres.isEmpty()) {
@@ -63,7 +63,7 @@ public class EnseignantMatiereService {
                 Enseignant ens = enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("Enseignant does not exist")));
 
                 System.out.println("Here Adding");
-                EnseignantMatiere newEnsMat = new EnseignantMatiere(mat,ens,type);
+                EnseignantMatiere newEnsMat = new EnseignantMatiere(mat,ens,type,nombreGroupes);
                 enseignantMatiereRepository.save(newEnsMat);
 
         }

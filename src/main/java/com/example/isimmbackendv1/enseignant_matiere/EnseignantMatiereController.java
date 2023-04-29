@@ -41,11 +41,12 @@ public class EnseignantMatiereController {
     }
 
     @PutMapping(consumes = "application/json;charset=UTF-8",path = "/updateEnseignantMatiere")
-    public void updateEnseignantMatiere(@RequestParam("matiereId") Long matiereId,@RequestParam("enseignantId") Long enseignantId,@RequestParam("type") String type){
+    public void updateEnseignantMatiere(@RequestParam("matiereId") Long matiereId,@RequestParam("enseignantId") Long enseignantId,@RequestParam("type") String type,@RequestParam("nombreGroupes") int nombreGroupes){
         System.out.println(matiereId);
         System.out.println(enseignantId);
         System.out.println(type);
-        enseignantMatiereService.updateEnseignantMatiere(matiereId,enseignantId,type);
+        System.out.println(nombreGroupes);
+        enseignantMatiereService.updateEnseignantMatiere(matiereId,enseignantId,type,nombreGroupes);
 
     }
 

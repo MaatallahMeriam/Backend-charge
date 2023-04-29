@@ -28,10 +28,18 @@ public class EnseignantMatiere implements Serializable {
 
     private String type;
 
+    private int nombreGroupes;
+
     public EnseignantMatiere(Matiere matiere, Enseignant enseignant, String type) {
         this.matiere = matiere;
         this.enseignant = enseignant;
         this.type = type;
+    }
+    public EnseignantMatiere(Matiere matiere, Enseignant enseignant, String type, int nombreGroupes) {
+        this.matiere = matiere;
+        this.enseignant = enseignant;
+        this.type = type;
+        this.nombreGroupes = nombreGroupes;
     }
 
 
