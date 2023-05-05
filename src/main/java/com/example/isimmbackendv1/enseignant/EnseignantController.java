@@ -44,6 +44,10 @@ public class EnseignantController {
     public void addEnseignant(@RequestBody Enseignant enseignant){
         enseignantService.addEnseignant(enseignant);
     }
+    @PostMapping(consumes = "application/json;charset=UTF-8",path = "/updateEnseignantpassword")
+    public void updateEnseignantPassword(@RequestBody EnseignantPasswordDTO enseignantPasswordDTO){
+        enseignantService.updateEnseignantPassword(enseignantPasswordDTO.getEnseignantId(),enseignantPasswordDTO.getOldPass(),enseignantPasswordDTO.getNewPass());
+    }
     @PutMapping(consumes = "application/json;charset=UTF-8",path = "/updateEnseignant")
     public void updateEnseignant(@RequestParam("enseignantId") Long enseignantId,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom,@RequestParam("email") String email){
         System.out.println(enseignantId);

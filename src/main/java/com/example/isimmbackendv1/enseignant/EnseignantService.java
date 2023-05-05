@@ -50,8 +50,17 @@ public class EnseignantService {
     {
         Enseignant ens = enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("EnseignantMatiere does not exist")));
         ens.setNom(nom);
-        ens.setNom(prenom);
-        ens.setNom(email);
+        ens.setPrenom(prenom);
+        ens.setEmail(email);
+        enseignantRepository.save(ens);
+    }
+
+    public void updateEnseignantPassword(Long enseignantId, String oldPass, String newPass)
+    {
+        Enseignant ens = enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("EnseignantMatiere does not exist")));
+        if(ens.getPassword().equals(oldPass)){
+            ens.setPassword(newPass);
+        }
         enseignantRepository.save(ens);
     }
 }
