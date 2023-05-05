@@ -35,7 +35,6 @@ public class EnseignantController {
         return enseignantService.getEnseignantByName(enseignantName);
 
     }
-
     @GetMapping
     public List<Enseignant> getEnseignants(){
         return enseignantService.getEnseignants();
@@ -44,6 +43,15 @@ public class EnseignantController {
     @PostMapping(consumes = "application/json;charset=UTF-8")
     public void addEnseignant(@RequestBody Enseignant enseignant){
         enseignantService.addEnseignant(enseignant);
+    }
+    @PutMapping(consumes = "application/json;charset=UTF-8",path = "/updateEnseignant")
+    public void updateEnseignant(@RequestParam("enseignantId") Long enseignantId,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom,@RequestParam("email") String email){
+        System.out.println(enseignantId);
+        System.out.println(nom);
+        System.out.println(prenom);
+        System.out.println(email);
+        enseignantService.updateEnseignant(enseignantId,nom,prenom,email);
+
     }
 
     @DeleteMapping(path="{enseignantId}")

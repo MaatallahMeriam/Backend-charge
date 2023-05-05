@@ -1,5 +1,6 @@
 package com.example.isimmbackendv1.enseignant;
 
+import com.example.isimmbackendv1.enseignant_matiere.EnseignantMatiere;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,6 @@ public class EnseignantService {
         }
         enseignantRepository.save(enseignant);
     }
-
-
     public void deleteEnseignant(Long enseignantId) {
         boolean exists=enseignantRepository.existsById(enseignantId);
         if(!exists){
@@ -46,6 +45,14 @@ public class EnseignantService {
         }
         enseignantRepository.deleteById(enseignantId);
 
+    }
+    public void updateEnseignant(Long enseignantId, String nom, String prenom , String email)
+    {
+        Enseignant ens = enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("EnseignantMatiere does not exist")));
+        ens.setNom(nom);
+        ens.setNom(prenom);
+        ens.setNom(email);
+        enseignantRepository.save(ens);
     }
 }
 

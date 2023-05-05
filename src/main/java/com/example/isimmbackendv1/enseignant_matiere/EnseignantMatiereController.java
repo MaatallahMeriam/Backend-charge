@@ -1,5 +1,6 @@
 package com.example.isimmbackendv1.enseignant_matiere;
 
+import com.example.isimmbackendv1.enseignant.EnseignantService;
 import com.example.isimmbackendv1.enseignant_matiere.EnseignantMatiere;
 import com.example.isimmbackendv1.enseignant_matiere.EnseignantMatiereService;
 import org.springframework.beans.factory.annotation.Autowired;

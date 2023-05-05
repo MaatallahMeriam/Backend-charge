@@ -17,6 +17,9 @@ public class Enseignant implements Serializable {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long enseignantId;
 
+    public Long getEnseignantId() {
+        return enseignantId;
+    }
 
     @Column
     private float NombreHeures;
