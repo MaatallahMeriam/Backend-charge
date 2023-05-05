@@ -1,5 +1,6 @@
 package com.example.isimmbackendv1.enseignant_voeux;
 
+import com.example.isimmbackendv1.enseignant_matiere.EnseignantMatiere;
 import com.example.isimmbackendv1.enseignant_voeux.EnseignantVoeux;
 import com.example.isimmbackendv1.enseignant_voeux.EnseignantVoeuxService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class EnseignantVoeuxController {
     @GetMapping(path="{enseignantVoeuxId}")
     public EnseignantVoeux getEnseignantVoeux(@PathVariable("enseignantVoeuxId") Long enseignantVoeuxId){
         return enseignantVoeuxService.getEnseignantVoeux(enseignantVoeuxId);
+
+    }
+    @GetMapping(path="/getEnseignantVoeuxByEnseignantId")
+    public List<EnseignantVoeux> getEnseignantVoeuxByEnseignantId(@RequestParam("enseignantId") Long enseignantId,@RequestParam("matiereId") Long matiereId,@RequestParam("matiereType") String matiereType){
+        return enseignantVoeuxService.getEnseignantVoeuxByEnseignantId(enseignantId,matiereId,matiereType);
 
     }
     @GetMapping

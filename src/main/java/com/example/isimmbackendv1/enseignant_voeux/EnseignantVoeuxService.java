@@ -4,6 +4,7 @@ import com.example.isimmbackendv1.enseignant_voeux.EnseignantVoeux;
 import com.example.isimmbackendv1.enseignant_voeux.EnseignantVoeuxRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,10 @@ public class EnseignantVoeuxService {
         enseignantVoeuxRepository.save(enseignantVoeux);
     }
 
+    public List<EnseignantVoeux> getEnseignantVoeuxByEnseignantId( Long enseignantId, Long matiereId,  String matiereType)
+    {
+        return enseignantVoeuxRepository.findEnseignantVoeuxByEnseignantMatiereType(enseignantId,matiereId,matiereType);
+    }
 
     public void deleteEnseignantVoeux(Long enseignantVoeuxId) {
         boolean exists=enseignantVoeuxRepository.existsById(enseignantVoeuxId);

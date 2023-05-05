@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface EnseignantVoeuxRepository extends JpaRepository<EnseignantVoeux,Long> {
     @Query("SELECT s FROM EnseignantVoeux s where  s.matiere.matiereId=?1")
     List<EnseignantVoeux> findEnseignantVoeuxByMatiere(Long matiereId);
+
+    @Query("SELECT s FROM EnseignantVoeux s where  s.enseignant.enseignantId=?1 and s.matiere.matiereId=?2 and s.type=?3")
+    List<EnseignantVoeux> findEnseignantVoeuxByEnseignantMatiereType(Long enseignantId,Long matiereId,String matiereType);
 }
