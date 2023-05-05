@@ -45,14 +45,16 @@ public class EnseignantMatiereService {
         List<EnseignantMatiere> enseignantMatieres= enseignantMatiereRepository.findEnseignantMatiereByMatiere(matiereId);
         Boolean found = false;
         if(!enseignantMatieres.isEmpty()) {
-            System.out.println("Here 2");
+            System.out.println("Here 2-"+enseignantMatieres.size());
             for (EnseignantMatiere e:enseignantMatieres) {
-                if(e.getType()==type)
+
+                if(e.getType().equals(type))
                 {
-                    System.out.println("Updating");
+
                     found =true;
                     EnseignantMatiere ensMat = enseignantMatiereRepository.findById(e.getEnseignantMatiereId()).orElseThrow(()->new IllegalStateException(("EnseignantMatiere does not exist")));
                     ensMat.setEnseignant(enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("Enseignant does not exist"))));
+                    ensMat.setNombreGroupes(nombreGroupes);
                     enseignantMatiereRepository.save(ensMat);
 
                 }
@@ -62,7 +64,7 @@ public class EnseignantMatiereService {
                 Matiere mat = matiereRepository.findById(matiereId).orElseThrow(()->new IllegalStateException(("Matiere does not exist")));
                 Enseignant ens = enseignantRepository.findById(enseignantId).orElseThrow(()->new IllegalStateException(("Enseignant does not exist")));
 
-                System.out.println("Here Adding");
+
                 EnseignantMatiere newEnsMat = new EnseignantMatiere(mat,ens,type,nombreGroupes);
                 enseignantMatiereRepository.save(newEnsMat);
 
